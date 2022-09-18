@@ -1,0 +1,13 @@
+.profile {
+	width: inherit;
+	height: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.profile img {
+	width: 80%;
+	border: 1px solid black;
+	border-radius: 50%;
+}

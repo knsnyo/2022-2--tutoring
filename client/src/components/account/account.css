@@ -1,0 +1,91 @@
+.account {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	flex: 1;
+	height: 92vh;
+	flex-direction: column;
+}
+
+.accountWrapper {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: inherit;
+	height: inherit;
+}
+
+.accountForm {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: inherit;
+	height: inherit;
+}
+
+.accountFormPP {
+	flex: 1;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+}
+
+.accountFormPP > img {
+	width: 100%;
+	max-width: 200px;
+	border-radius: 50%;
+	border: 1px solid black;
+}
+
+.accountFormPP > label {
+	cursor: pointer;
+	font-size: 40px;
+}
+
+.accountFormGroup {
+	display: flex;
+	flex: 2;
+	justify-content: space-around;
+	align-items: center;
+	width: inherit;
+	flex-direction: column;
+}
+
+.accountFormGroup > input {
+	font-size: 20px;
+	height: 3em;
+	width: 80%;
+	max-width: 450px;
+}
+
+.accountFormButton {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: inherit;
+}
+
+.accountSubmit {
+	color: white;
+	background-color: teal;
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.accountDelete {
+	color: white;
+	background-color: orangered;
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	font-size: 16px;
+}

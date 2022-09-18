@@ -1,0 +1,100 @@
+.reply{
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	width: inherit;
+	height: 100%;
+	flex-direction: column;
+	padding: 5px;
+}
+
+.replyMenu {
+	width: inherit;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: space-between;
+	flex-direction: row;
+}
+
+.replyMenuLeft {
+	flex: 1;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+}
+
+.replyMenuRight {
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.replyTotalLike {
+	width: inherit;
+	flex: 1;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 20px;
+}
+
+.postDescription {
+	width: inherit;
+	flex: 1;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 20px;
+}
+
+.replyList {
+	width: inherit;
+	flex: 1;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding-left: 20px;
+}
+
+.replyForm {
+	flex: 1;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	width: inherit;
+	border-top: 1px solid #ddd;
+}
+
+.replyFormLeft {
+	
+}
+
+.replyFormCenter {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: inherit;
+}
+
+.replyFormRight {
+	padding: 10px
+}
+
+.replyIcon {
+	font-size: 24px;
+	padding: 0px 10px;
+	cursor: pointer;
+}
+
+.replyInput {
+	width: 100%;
+	border: none;
+	border-radius: 10px;
+	font-size: 14px;
+}

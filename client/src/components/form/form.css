@@ -1,0 +1,54 @@
+.form {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 90vh;
+}
+
+.formPreview{
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 1px solid black;
+	width: inherit;
+}
+
+.formWrite{
+	flex: 2;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+}
+
+.formWriteGroup {
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+}
+
+.formWriteGroup > label {
+	cursor: pointer;
+	font-size: 50px;
+}
+
+.formWriteGroup > textarea {
+	font-size: 16px;
+	padding: 20px;
+	width: 70vw;
+	resize: none;
+	height: 3em;
+}
+
+.formWriteGroupSubmit {
+	color: white;
+	background-color: teal;
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	font-size: 16px;
+}
