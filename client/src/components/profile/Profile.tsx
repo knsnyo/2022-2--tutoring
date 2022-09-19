@@ -1,7 +1,7 @@
 import React from "react"
 import "./profile.css"
 
-type ImageUrl = {
+interface ImageUrl {
 	name: string;
 }
 

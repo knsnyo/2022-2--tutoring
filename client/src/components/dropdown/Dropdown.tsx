@@ -1,7 +1,7 @@
 import React from "react"
 import "./dropdown.css"
 
-type Props = {
+interface Props {
 	children: React.ReactNode;
 	visible: Boolean
 }

@@ -28,6 +28,12 @@ function Info () {
 						follow: 34
 					</div>
 				</div>
+				<div className="infoTotal">
+					<span>name</span>
+				</div>
+				<div className="infoTotal">
+					<span>intro</span>
+				</div>
 			</div>
 		</div>
 	)

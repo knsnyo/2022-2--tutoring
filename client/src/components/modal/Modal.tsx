@@ -1,7 +1,7 @@
 import React from "react"
 import "./modal.css"
 
-function Modal (setModal: any) {
+function Modal (setModal: Function) {
 	return (
 		<div className="modal">
 			<button className="modalButton" onClick={() => setModal(false)}>

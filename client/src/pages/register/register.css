@@ -6,20 +6,24 @@
 	flex: 1;
 	height: 100vh;
 	flex-direction: column;
+	background-color: rgba(200,200,200,0.1);
 }
 
 .registerForm {
-	flex: 1;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	width: inherit;
-	height: inherit;
+	background-color: white;
+	padding: 70px;
+	border: 1px solid #ddd;
+	border-radius: 20px; 
 }
 
 .registerForm > label {
-	font-size: 80px;
+	font-size: 30px;
+	font-style: italic;
+	margin: 10px;
 }
 
 .registerFormGroup {
@@ -32,8 +36,8 @@
 
 .registerFormGroup > input {
 	font-size: 20px;
-	height: 3em;
-	width: 80%;
+	height: 2em;
+	width: 90%;
 	max-width: 450px;
 	margin: 10px;
 }
@@ -42,7 +46,7 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	width: inherit;
+	width: 100%;
 }
 
 .registerSubmit {

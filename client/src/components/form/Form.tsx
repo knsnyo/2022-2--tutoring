@@ -13,13 +13,11 @@ function Form () {
 						<i className="fa-solid fa-image"></i>
 					</label>
 					<input id="fileInput" type="file" multiple={true} style={{display: "none"}}/>
-				</div>
-				<div className="formWriteGroup">
 					<textarea
 						placeholder="Tell your story"
 					/>
 				</div>
-				<div className="formWriteGroup">
+				<div className="formWriteButton">
 					<button className="formWriteGroupSubmit" type="submit">
 						Upload
 					</button>

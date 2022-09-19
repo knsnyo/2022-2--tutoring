@@ -83,7 +83,9 @@
 }
 
 .replyFormRight {
-	padding: 10px
+	padding: 10px;
+	font-weight: bold;
+	color: blue;
 }
 
 .replyIcon {

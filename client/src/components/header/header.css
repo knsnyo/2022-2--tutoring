@@ -61,11 +61,13 @@
 
 .headerListItemProfile {
 	max-width: 5vh;
+	right: 0;
 }
 
 .headerListItemProfile ul {
 	list-style: none;
 	padding-left: 0;
+	border: 1px solid #ddd;
 }
 
 .headerListItemProfile li {
