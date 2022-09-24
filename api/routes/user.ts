@@ -1,7 +1,6 @@
 import { Router, Request, Response } from "express"
 import { User } from "../models/User"
-import { compare, genSalt, hash } from "bcrypt"
-
+import { genSalt, hash } from "bcrypt"
 
 /** db */
 import { connect } from "mongoose"
@@ -12,7 +11,7 @@ const userRouter: Router = Router()
 
 /** update */
 userRouter.put("/:id", async (req: Request, res: Response) => {
-	if (req.body.userId === req.params.id) {
+	if (req.body._id === req.params.id) {
 		if (req.body.password) {
 			const salt = await genSalt(10)
 			req.body.password = await hash(req.body.password, salt)
@@ -36,22 +35,42 @@ userRouter.put("/:id", async (req: Request, res: Response) => {
 
 /** delete */
 userRouter.delete("/:id", async (req: Request, res: Response) => {
-	if (req.body.userId === req.params.id) {
+	if (req.body._id === req.params.id) {
 		try {
 			const deleteUser = await User.findById(req.params.id)
 			if (!deleteUser) {
-				res.status(404).json("User not found")
+				res.status(404).json("User Not Found")
 			} else {
 				await Post.deleteMany({ username: deleteUser.username})
 				await User.findByIdAndDelete(req.params.id)
 	
-				res.status(200).json("Delete")
+				res.status(200).json("Delete Your Account")
 			}
 		} catch (err: unknown) {
 			res.status(500).json(err)
 		}
 	} else {
-		res.status(401).json("Not your account")
+		res.status(401).json("Not Your Account")
+	}
+})
+
+userRouter.post("/:id", async (req: Request, res: Response) => {
+	if (req.body._id === req.params.id) {
+		try {
+			const deleteUser = await User.findById(req.params.id)
+			if (!deleteUser) {
+				res.status(404).json("User Not Found")
+			} else {
+				await Post.deleteMany({ user_id: req.params.id})
+				await User.findByIdAndDelete(req.params.id)
+	
+				res.status(200).json("Delete Your Account")
+			}
+		} catch (err: unknown) {
+			res.status(500).json(err)
+		}
+	} else {
+		res.status(401).json("Not Your Account")
 	}
 })
 

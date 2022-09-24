@@ -45,7 +45,7 @@ authRouter.post("/login", async (req: Request, res: Response) => {
 
 		/** no user */
 		if (!user) {
-			res.status(400).json("No Member")
+			res.status(404).json("Member Not Found")
 		} else {
 			/** compare password */
 			const validated = await compare(req.body.password, user.password)
@@ -54,8 +54,7 @@ authRouter.post("/login", async (req: Request, res: Response) => {
 			if (!validated) {
 				res.status(400).json("Wrong password")
 			} else {
-				const { password, ...others} = user
-				res.status(200).json(others)
+				res.status(200).json(user)
 			}
 		}
 

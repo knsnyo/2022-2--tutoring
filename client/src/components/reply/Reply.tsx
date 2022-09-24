@@ -1,7 +1,13 @@
 import React from "react"
+import { IPost, IUser } from "../../interface"
 import "./reply.css"
 
-function Reply () {
+interface IProps {
+	user: IUser,
+	post: IPost
+}
+
+function Reply ({user, post}: IProps) {
 	return (
 		<div className="reply">
 			<div className="replyMenu">
@@ -15,13 +21,12 @@ function Reply () {
 				</div>
 			</div>
 			<div className="replyTotalLike">
-				Like: {3}
+				<strong>Like</strong>: {post.like}
 			</div>
 			<div className="postDescription">
-				작성자: 내용
+				<span><strong>{user.username}&nbsp;</strong>{post.description}</span>
 			</div>
 			<div className="replyList">
-				작성자: 댓글
 			</div>
 			<div className="replyForm">
 				<div className="replyFormLeft">

@@ -1,7 +1,12 @@
 import { Schema, model, Model } from "mongoose"
 
 interface DBUser {
-	[key: string]: string
+	id: string,
+	username: string,
+	password: string,
+	profilePic: string,
+	intro: string,
+	like: Array<string>
 }
 
 interface DBUserModel extends Model<DBUser> {}
@@ -28,6 +33,10 @@ const UserSchema: Schema = new Schema({
 	intro: {
 		type: String,
 		default: "",
+	},
+	like: {
+		type: Array,
+		defalut: [],
 	},
 }, {timestamps: true})
 

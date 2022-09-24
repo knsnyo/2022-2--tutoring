@@ -29,6 +29,14 @@
 	padding: 10px;
 }
 
+.postHeaderLeft > span {
+	width: 5vh;
+	height: 5vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .postHeaderRight {
 	flex: 4;
 	display: flex;

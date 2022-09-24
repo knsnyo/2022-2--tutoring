@@ -1,11 +1,10 @@
 .magazines {
 	flex: 1;
 	display: flex;
-	justify-content: flex-start;
-	align-items: space-around;
 	flex-direction: row;
-	margin: 0;
-	background-color: rgba(200,200,200,0.1);
 	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin: 0;
 	width: inherit;
 }

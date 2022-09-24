@@ -1,21 +1,41 @@
-import React from "react"
+import "./post.css"
+import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import Gallery from "../gallery/Gallery"
 import Profile from "../profile/Profile"
 import Reply from "../reply/Reply"
-import "./post.css"
+import { IPost, IUser } from "../../interface"
+import axios from "axios"
+interface IProps {
+	post: IPost
+}
 
-import { Link } from "react-router-dom"
+function Post ({post}: IProps) {
+	const [user, setUser] = useState<IUser>({})
+	
+	const PF = "http://localhost:5000/image/"
 
-function Post () {
+	useEffect(() => {
+		const findUser = async () => {
+			const res = await axios.get(`/api/user/${post.user_id}`)
+			setUser(res.data)
+		}
+		findUser()
+	}, [post.user_id])
+
 	return (
 		<div className="post">
 			<div className="postHeader">
 				<div className="postHeaderLeft">
-					<Link to="/mypage">
-						<Profile name="/profile.jpg"/>
-					</Link>
-					<Link to="/mypage" className="link">
-						name
+					<span>
+						<Link to={`/${user._id}`}>
+							<Profile name={
+								user.profilePic != "" ? PF + user.profilePic : "/no.jpg"
+							}/>
+						</Link>
+					</span>
+					<Link to={`/${user._id}`} className="link">
+						<strong>&nbsp;{user.username}</strong>
 					</Link>
 				</div>
 				<div className="postHeaderRight">
@@ -26,7 +46,7 @@ function Post () {
 				<Gallery/>
 			</div>
 			<div className="postFooter">
-				<Reply/>
+				<Reply user={user} post={post}/>
 			</div>
 		</div>
 	)

@@ -1,12 +1,20 @@
-import React from "react"
+import { useState, useContext } from "react"
 import Profile from "../profile/Profile"
 import "./header.css"
-
 import { Link } from "react-router-dom"
 import Dropdown from "../dropdown/Dropdown"
+import { LoginContext } from "../../context/LoginContext"
 
 function Header () {
-	const [dropdown, setDropdown] = React.useState<Boolean>(false)
+	const { state, dispatch } = useContext(LoginContext)
+	const [dropdown, setDropdown] = useState<Boolean>(false)
+
+	const PF = "http://localhost:5000/image/"
+
+	const handleLogout = () => {
+		dispatch({ type: "LOGOUT"})
+		window.location.replace("/login")
+	}
 
 	return(
 		<div className="header">
@@ -45,11 +53,11 @@ function Header () {
 					<li className="headerListItem">
 						<div className="headerListItemProfile">
 							<span onClick={() => setDropdown(!dropdown)}>
-								<Profile name="/profile.jpg"/>
+								<Profile name={PF + state.user.profilePic}/>
 							</span>
 							<Dropdown visible={dropdown}>
 								<ul>
-									<Link to="/mypage" className="link">
+									<Link to={`/${state.user._id}`} className="link">
 										<li>
 											<i className="fa-solid fa-user"></i>
 											Profile
@@ -62,7 +70,7 @@ function Header () {
 										</li>
 									</Link>
 									<hr />
-									<li>
+									<li onClick={handleLogout}>
 										Logout
 									</li>
 								</ul>

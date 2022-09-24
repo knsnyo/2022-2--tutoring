@@ -1,23 +1,18 @@
+import "./magazines.css"
 import React from "react"
 import Magazine from "../magazine/Magazine"
-import "./magazines.css"
+import { IPost } from "../../interface"
 
-function Magazines () {
+interface IProps {
+	posts: Array<IPost>
+}
+
+function Magazines ({ posts }: IProps) {
 	return (
 		<div className="magazines">
-			<Magazine/>
-			<Magazine/>
-			<Magazine/>
-			<Magazine/>
-			<Magazine/>
-			<Magazine/>
-			<Magazine/>
-			<Magazine/>
-			<Magazine/>
-			<Magazine/>
-			<Magazine/>
-			<Magazine/>
-			<Magazine/>
+			{posts.map((data:IPost, index) => (
+				<Magazine key={index} magazine={data}/>
+			))}
 		</div>
 	)
 }

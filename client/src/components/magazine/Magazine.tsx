@@ -1,7 +1,11 @@
-import React from "react"
+import { IPost } from "../../interface"
 import "./magazine.css"
 
-function Magazine () {
+interface IProps {
+	magazine: IPost
+}
+
+function Magazine ({magazine}: IProps) {
 	return (
 		<div className="magazine">
 			<img src={"/profile.jpg"} alt=""/>
