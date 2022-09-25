@@ -1,16 +1,18 @@
 import "./post.css"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
 import Gallery from "../gallery/Gallery"
 import Profile from "../profile/Profile"
 import Reply from "../reply/Reply"
 import { IPost, IUser } from "../../interface"
 import axios from "axios"
+import { LoginContext } from "../../context/LoginContext"
 interface IProps {
 	post: IPost
 }
 
 function Post ({post}: IProps) {
+	const { state } = useContext(LoginContext)
 	const [user, setUser] = useState<IUser>({})
 	
 	const PF = "http://localhost:5000/image/"
@@ -23,6 +25,20 @@ function Post ({post}: IProps) {
 		findUser()
 	}, [post.user_id])
 
+	const deleteHandler = async (e: React.MouseEvent<HTMLElement>) => {
+		const deletePost = {
+			user_id: post.user_id
+		}
+		try {
+			await axios.delete(`/api/post/${post._id}`, {
+				data:deletePost
+			})
+			window.location.reload()
+		} catch (err: unknown) {
+			console.log(err)
+		}
+	}
+
 	return (
 		<div className="post">
 			<div className="postHeader">
@@ -30,7 +46,7 @@ function Post ({post}: IProps) {
 					<span>
 						<Link to={`/${user._id}`}>
 							<Profile name={
-								user.profilePic != "" ? PF + user.profilePic : "/no.jpg"
+								user.profilePic !== "" ? PF + user.profilePic : "/no.jpg"
 							}/>
 						</Link>
 					</span>
@@ -38,12 +54,22 @@ function Post ({post}: IProps) {
 						<strong>&nbsp;{user.username}</strong>
 					</Link>
 				</div>
-				<div className="postHeaderRight">
-					<i className="fa-solid fa-ellipsis"></i>
-				</div>
+				{ (state.user._id === post.user_id) ? (
+						<div className="postHeaderRight">
+							<Link className="link" to={`/write/${post._id}`}>
+								<i className="fa-solid fa-pen"></i>
+							</Link>
+							&nbsp;&nbsp;
+							<i className="fa-sharp fa-solid fa-trash" onClick={deleteHandler}></i>
+						</div>
+					) : (
+						<div className="postHeaderRight">
+						</div>
+					)
+				}
 			</div>
 			<div className="postSection">
-				<Gallery/>
+				<Gallery photo={post.postPic}/>
 			</div>
 			<div className="postFooter">
 				<Reply user={user} post={post}/>

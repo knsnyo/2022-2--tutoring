@@ -8,6 +8,7 @@ import Login from './pages/login/Login';
 import Mypage from './pages/mypage/Mypage';
 import Register from './pages/register/Register';
 import Setting from './pages/setting/Setting';
+import Single from './pages/single/Single';
 import Write from './pages/write/Write';
 import Scroll from './Scroll';
 
@@ -25,9 +26,11 @@ function App () {
           <Route path="/explore" element={state.user ? <Explore/> : <Login/>}/>
           <Route path="/:id" element={state.user ? <Mypage/> : <Login/>}/>
           <Route path="/write" element={state.user ? <Write/> : <Login/>}/>
+          <Route path="/write/:id" element={state.user ? <Write/> : <Login/>}/>
           <Route path="/setting" element={state.user ? <Setting/> : <Login/>}/>
           <Route path="/login" element={state.user ? <Home/> :<Login/>}/>
           <Route path="/register" element={state.user? <Home/> : <Register/>}/>
+          <Route path="/single/:id" element={state.user? <Single/> : <Register/>}/>
         </Routes>
       </BrowserRouter>
     </>

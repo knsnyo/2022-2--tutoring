@@ -4,6 +4,7 @@ import { Post } from "../models/Post"
 /** db */
 import { connect } from "mongoose"
 import { MONGO_URL } from "../setting"
+import { Reply } from "../models/Reply"
 
 const postRouter: Router = Router()
 
@@ -32,6 +33,7 @@ postRouter.put("/:id",async (req: Request, res: Response) => {
 			res.status(404).json("Post Not Found")
 		} else {
 			if(findPost.user_id !== req.body.user_id) {
+				console.log(req.body)
 				res.status(401).json("Not Your Post")
 			} else {
 				const updatedPost = await Post.findByIdAndUpdate(req.params.id, {
@@ -59,6 +61,8 @@ postRouter.delete("/:id",async (req: Request, res: Response) => {
 				res.status(401).json("Not Your Post")
 			} else {
 				await findPost.delete()
+				await Reply.deleteMany({ post_id: req.params.id})
+				
 				res.status(200).json("Delete Your Post")
 			}
 		}
@@ -72,6 +76,16 @@ postRouter.get("/:id", async (req: Request, res: Response) => {
 	try {
 		const findUser = req.params.id
 		const post = await Post.find({ user_id: findUser })
+		res.status(200).json(post)
+	} catch(err) {
+		res.status(500).json(err)
+	}
+})
+
+/** get user post */
+postRouter.get("/single/:id", async (req: Request, res: Response) => {
+	try {
+		const post = await Post.find({ _id: req.params.id })
 		res.status(200).json(post)
 	} catch(err) {
 		res.status(500).json(err)

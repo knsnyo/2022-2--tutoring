@@ -37,10 +37,12 @@
 	width: inherit;
 }
 
-.formWriteGroup > label {
+.formWriteGroupLabel {
 	cursor: pointer;
 	font-size: 30px;
 	margin: 20px;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .formWriteGroup > textarea {

@@ -1,23 +1,14 @@
-import React from "react"
 import "./gallery.css"
 import Carousel from "react-material-ui-carousel"
 import { Paper } from "@mui/material"
 
-function Gallery () {
-	let items = [
-		{
-			name: "Random Name #1",
-			description: "hello",
-		},
-		{
-			name: "Random Name #2",
-			description: "hello",
-		},
-		{
-			name: "Random Name #3",
-			description: "hello",
-		},
-	]
+interface IProps {
+	photo: object
+}
+
+function Gallery ({photo}: IProps) {
+	let items = Object.values(photo)
+
 	return (
 		<div className="gallery">
 			<Carousel
@@ -39,10 +30,15 @@ function Gallery () {
 	)
 }
 
-function Item(props: any) {
+interface IItemProps {
+	item: string
+}
+
+function Item({item}: IItemProps) {
+	const PF = "http://localhost:5000/image/"
 	return (
 		<Paper>			
-			<img src={"/profile.jpg"} alt="" width={"100%"}/>
+			<img src={PF + item} alt="" width={"100%"} height={"450px"}/>
 		</Paper>
 	)
 }

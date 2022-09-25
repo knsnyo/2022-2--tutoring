@@ -62,9 +62,9 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	padding-left: 20px;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	flex-direction: column;
 }
 
 .replyForm {
@@ -95,6 +95,9 @@
 	padding: 10px;
 	font-weight: bold;
 	color: blue;
+	border: none;
+	background-color: white;
+	cursor: pointer;
 }
 
 .replyIcon {

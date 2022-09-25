@@ -25,7 +25,7 @@ function Info () {
 		<div className="info">
 			<div className="infoProfile">
 				<Profile name={
-					user ? `${PF + user.profilePic}` : "/no.jpg"
+					(user && user.profilePic !== "")? PF + user.profilePic : "/no.jpg"
 				}/>
 			</div>
 			<div className="infoView">

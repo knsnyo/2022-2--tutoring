@@ -35,7 +35,6 @@ function Account () {
 		try {
 			const res = await axios.put(`/api/user/${state.user._id}`, updatedUser)
 			dispatch({ type: "UPDATE_SUCCESS", payload: res.data})
-			console.log(res.data)
 			//window.location.replace(`/${updatedUser._id}`)
 		} catch (err: unknown) {
 			dispatch({ type: "UPDATE_FAILURE" })
@@ -48,7 +47,9 @@ function Account () {
 			_id: state.user._id
 		}
 		try {
-			await axios.post(`/api/user/${state.user._id}`, deleteUser)
+			await axios.delete(`/api/user/${state.user._id}`, {
+				data: deleteUser
+			})
 			dispatch({ type: "LOGOUT"})
 			window.location.replace("/login")
 		} catch (err: unknown) {
@@ -77,6 +78,7 @@ function Account () {
 							type="file" 
 							id="accountPP" 
 							style={{display: "none"}}
+							accept=".jpg,.jpeg,.png"
 							onChange={(e) => setFile(e.target.files)}
 						/>
 					</div>

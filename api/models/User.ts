@@ -6,7 +6,7 @@ interface DBUser {
 	password: string,
 	profilePic: string,
 	intro: string,
-	like: Array<string>
+	like: Array<object>
 }
 
 interface DBUserModel extends Model<DBUser> {}
@@ -36,8 +36,8 @@ const UserSchema: Schema = new Schema({
 	},
 	like: {
 		type: Array,
-		defalut: [],
-	},
+		defalut: []
+	}
 }, {timestamps: true})
 
 const User = model<DBUser, DBUserModel>("users", UserSchema)

@@ -1,6 +1,10 @@
-import React from "react"
-import { IPost, IUser } from "../../interface"
+import axios from "axios"
+import React, { useContext, useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import { LoginContext } from "../../context/LoginContext"
+import { IPost, IReply, IUser } from "../../interface"
 import "./reply.css"
+import ReplyDetail from "./ReplyDetail"
 
 interface IProps {
 	user: IUser,
@@ -8,12 +12,41 @@ interface IProps {
 }
 
 function Reply ({user, post}: IProps) {
+	const { state } = useContext(LoginContext)
+	const [reply, setReply] = useState<string>("")
+	const [replies, setReplies] = useState([])
+	const [view, setView] = useState<boolean>(false)
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault()
+		const newReply = {
+			description: reply,
+			user_id: state.user,
+			post_id: post._id,
+		}
+		try {
+			await axios.post("/api/reply", newReply)
+			setReply("")
+		} catch (err: unknown) {
+			console.log(err)
+		}
+	}
+	
+	useEffect(() => {
+    const fetchReplies = async () => {
+      const res = await axios.get(`/api/reply/${post._id}`)
+      setReplies(res.data)
+    }
+    fetchReplies()
+  }, [post._id, replies])
+
 	return (
 		<div className="reply">
 			<div className="replyMenu">
 				<div className="replyMenuLeft">
 					<i className="replyIcon fa-regular fa-heart"></i>
-					<i className="replyIcon fa-regular fa-comment"></i>
+					<Link to={`/single/${post._id}`} className="link">
+						<i className="replyIcon fa-regular fa-comment"></i>
+					</Link>
 					<i className="replyIcon fa-regular fa-paper-plane"></i>
 				</div>
 				<div className="replyMenuRight">
@@ -27,16 +60,27 @@ function Reply ({user, post}: IProps) {
 				<span><strong>{user.username}&nbsp;</strong>{post.description}</span>
 			</div>
 			<div className="replyList">
+				<div className="postDescription" onClick={() => setView(!view)} style={{color: "#888"}}>{ !view ? "댓글 확인" : "댓글 숨기기"}</div>
+				{view && replies.map((re: IReply, index) => {
+					return (
+						<ReplyDetail re={re} key={index}/>
+				)})}
 			</div>
-			<div className="replyForm">
+			<form className="replyForm" onSubmit={handleSubmit}>
 				<div className="replyFormLeft">
 					<i className="replyIcon fa-regular fa-face-smile"></i>
 				</div>
 				<div className="replyFormCenter">
-					<input type="text" className="replyInput" placeholder="reply"/>
+					<input
+						type="text" 
+						className="replyInput" 
+						placeholder="reply"
+						onChange={(e) => setReply(e.target.value)}
+						value={reply}
+					/>
 				</div>
-				<div className="replyFormRight">게시</div>
-			</div>
+				<button className="replyFormRight" type="submit">게시</button>
+			</form>
 		</div>
 	)
 }

@@ -53,7 +53,7 @@ function Header () {
 					<li className="headerListItem">
 						<div className="headerListItemProfile">
 							<span onClick={() => setDropdown(!dropdown)}>
-								<Profile name={PF + state.user.profilePic}/>
+								<Profile name={state.user.profilePic ? PF + state.user.profilePic : "/no.jpg"}/>
 							</span>
 							<Dropdown visible={dropdown}>
 								<ul>
