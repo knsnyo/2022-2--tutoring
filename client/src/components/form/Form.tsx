@@ -24,7 +24,6 @@ function Form () {
 						alt=""
 						key={i}
 						width="20%"
-						height={"20%"}
 					/>
 				)
 			}
@@ -89,7 +88,7 @@ function Form () {
 		<div className="form">
 			<div className="formPreview">
 				<label htmlFor="fileInput" className="formWriteGroupLabel">
-					{ (file?.length !== 0) ?
+					{ (file?.length) ?
 						viewFile()
 						:
 						<i className="fa-solid fa-image"></i>

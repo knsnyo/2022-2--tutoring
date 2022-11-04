@@ -24,6 +24,6 @@ const ReplySchema = new Schema<DBReply>({
 
 }, {timestamps: true})
 
-const Reply = model<DBReply, DBReplyModel>("Replys", ReplySchema)
+const Reply = model<DBReply, DBReplyModel>("replys", ReplySchema)
 
 export { Reply }

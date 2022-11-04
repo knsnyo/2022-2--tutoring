@@ -28,7 +28,7 @@ const UserSchema: Schema = new Schema({
 	},
 	profilePic: {
 		type: String,
-		default: ""
+		default: "",
 	},
 	intro: {
 		type: String,
@@ -42,4 +42,4 @@ const UserSchema: Schema = new Schema({
 
 const User = model<DBUser, DBUserModel>("users", UserSchema)
 
-export { User, DBUser }
+export { User }

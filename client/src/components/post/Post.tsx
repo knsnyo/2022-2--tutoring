@@ -33,7 +33,7 @@ function Post ({post}: IProps) {
 			await axios.delete(`/api/post/${post._id}`, {
 				data:deletePost
 			})
-			window.location.reload()
+			window.location.replace("/")
 		} catch (err: unknown) {
 			console.log(err)
 		}

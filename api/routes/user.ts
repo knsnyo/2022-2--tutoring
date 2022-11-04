@@ -4,7 +4,7 @@ import { genSalt, hash } from "bcrypt"
 
 /** db */
 import { connect } from "mongoose"
-import { MONGO_URL } from "../setting"
+import { MONGO_URL, SALT } from "../setting"
 import { Post } from "../models/Post"
 import { Reply } from "../models/Reply"
 
@@ -14,7 +14,7 @@ const userRouter: Router = Router()
 userRouter.put("/:id", async (req: Request, res: Response) => {
 	if (req.body._id === req.params.id) {
 		if (req.body.password) {
-			const salt = await genSalt(10)
+			const salt = await genSalt(SALT)
 			req.body.password = await hash(req.body.password, salt)
 		}
 		try {
@@ -66,7 +66,6 @@ userRouter.get("/:id", async (req: Request, res: Response) => {
 		await connect(MONGO_URL)
 
 		const findUser = await User.findById({_id: req.params.id})
-
 		res.status(200).json(findUser)
 	} catch (err: unknown) {
 		res.status(500).json(err)

@@ -33,7 +33,6 @@ postRouter.put("/:id",async (req: Request, res: Response) => {
 			res.status(404).json("Post Not Found")
 		} else {
 			if(findPost.user_id !== req.body.user_id) {
-				console.log(req.body)
 				res.status(401).json("Not Your Post")
 			} else {
 				const updatedPost = await Post.findByIdAndUpdate(req.params.id, {
@@ -76,6 +75,7 @@ postRouter.get("/:id", async (req: Request, res: Response) => {
 	try {
 		const findUser = req.params.id
 		const post = await Post.find({ user_id: findUser })
+		post.reverse()
 		res.status(200).json(post)
 	} catch(err) {
 		res.status(500).json(err)

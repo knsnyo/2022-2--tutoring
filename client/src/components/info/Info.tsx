@@ -5,7 +5,11 @@ import { Link, useLocation } from "react-router-dom"
 import { IUser } from "../../interface"
 import axios from "axios"
 
-function Info () {
+interface IProps {
+	post: number
+}
+
+function Info ({ post }: IProps) {
 	const [user, setUser] = useState<IUser>()
 	const location = useLocation()
 	const path = location.pathname.split("/")[1]
@@ -37,7 +41,7 @@ function Info () {
 				</div>
 				<div className="infoTotal">
 					<div className="infoTotalDetail">
-						post: <strong>34</strong>
+						post: <strong>{post}</strong>
 					</div>
 					<div className="infoTotalDetail">
 						follower: <strong>34</strong>

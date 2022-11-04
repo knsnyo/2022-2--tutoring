@@ -21,7 +21,7 @@ function Mypage () {
 	return (
 		<>
 			<Header/>
-			<Info/>
+			<Info post={posts.length}/>
 			<Magazines posts={posts}/>
 		</>
 	)

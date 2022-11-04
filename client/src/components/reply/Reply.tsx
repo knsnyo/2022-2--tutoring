@@ -18,16 +18,18 @@ function Reply ({user, post}: IProps) {
 	const [view, setView] = useState<boolean>(false)
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-		const newReply = {
-			description: reply,
-			user_id: state.user,
-			post_id: post._id,
-		}
-		try {
-			await axios.post("/api/reply", newReply)
-			setReply("")
-		} catch (err: unknown) {
-			console.log(err)
+		if (reply !== "") {
+			const newReply = {
+				description: reply,
+				user_id: state.user,
+				post_id: post._id,
+			}
+			try {
+				await axios.post("/api/reply", newReply)
+				setReply("")
+			} catch (err: unknown) {
+				console.log(err)
+			}
 		}
 	}
 	
@@ -79,7 +81,8 @@ function Reply ({user, post}: IProps) {
 						value={reply}
 					/>
 				</div>
-				<button className="replyFormRight" type="submit">게시</button>
+				{reply.length !==0 && <button className="replyFormRight" type="submit">게시</button>}
+				{reply.length === 0 && <button className="replyFormRight" type="submit" style={{opacity: 0.2}} disabled>게시</button>}
 			</form>
 		</div>
 	)

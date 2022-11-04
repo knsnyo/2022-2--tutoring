@@ -1,11 +1,9 @@
 import { Router, Request, Response } from "express"
 import { User } from "../models/User"
 import { compare, genSalt, hash } from "bcrypt"
-
-
 /** db */
 import { connect } from "mongoose"
-import { MONGO_URL } from "../setting"
+import { MONGO_URL, SALT } from "../setting"
 
 const authRouter: Router = Router()
 
@@ -16,7 +14,7 @@ authRouter.post("/register", async (req: Request, res: Response) => {
 		await connect(MONGO_URL)
 
 		/** hash */
-		const salt = await genSalt(10)
+		const salt = await genSalt(SALT)
 		const hashedPassword = await hash(req.body.password, salt)
 
 		/** data */
