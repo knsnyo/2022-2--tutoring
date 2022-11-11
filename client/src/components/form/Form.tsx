@@ -23,7 +23,6 @@ function Form () {
 						src={URL.createObjectURL(file[i])}
 						alt=""
 						key={i}
-						width="20%"
 					/>
 				)
 			}
@@ -89,7 +88,9 @@ function Form () {
 			<div className="formPreview">
 				<label htmlFor="fileInput" className="formWriteGroupLabel">
 					{ (file?.length) ?
-						viewFile()
+						<div className="fileInputPreview">
+							{viewFile()}
+						</div>
 						:
 						<i className="fa-solid fa-image"></i>
 					}

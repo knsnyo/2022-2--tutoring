@@ -1,6 +1,7 @@
 import "./gallery.css"
 import Carousel from "react-material-ui-carousel"
 import { Paper } from "@mui/material"
+import { PF } from "../../settings"
 
 interface IProps {
 	photo: object
@@ -35,7 +36,6 @@ interface IItemProps {
 }
 
 function Item({item}: IItemProps) {
-	const PF = "http://localhost:5000/image/"
 	return (
 		<Paper>			
 			<img src={PF + item} alt="" width={"100%"} height={"450px"}/>

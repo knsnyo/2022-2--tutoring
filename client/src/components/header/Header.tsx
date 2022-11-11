@@ -4,16 +4,15 @@ import "./header.css"
 import { Link } from "react-router-dom"
 import Dropdown from "../dropdown/Dropdown"
 import { LoginContext } from "../../context/LoginContext"
+import { PF } from "../../settings"
 
 function Header () {
 	const { state, dispatch } = useContext(LoginContext)
 	const [dropdown, setDropdown] = useState<Boolean>(false)
 
-	const PF = "http://localhost:5000/image/"
-
 	const handleLogout = () => {
 		dispatch({ type: "LOGOUT"})
-		window.location.replace("/login")
+		window.location.replace("/")
 	}
 
 	return(

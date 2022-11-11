@@ -4,6 +4,7 @@ import "./info.css"
 import { Link, useLocation } from "react-router-dom"
 import { IUser } from "../../interface"
 import axios from "axios"
+import { PF } from "../../settings"
 
 interface IProps {
 	post: number
@@ -13,9 +14,6 @@ function Info ({ post }: IProps) {
 	const [user, setUser] = useState<IUser>()
 	const location = useLocation()
 	const path = location.pathname.split("/")[1]
-
-	const PF = "http://localhost:5000/image/"
-
 	
 	useEffect(() => {
 		const findUser = async () => {

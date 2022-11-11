@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LoginContext } from './context/LoginContext';
 
@@ -14,15 +14,12 @@ import Scroll from './Scroll';
 
 function App () {
   const { state } = useContext(LoginContext)
-  useEffect(() => {
-
-  }, [state.user])
+  
   return (
     <>
       <BrowserRouter>
         <Scroll/>
         <Routes>
-          <Route path="/" element={state.user ? <Home/> : <Login/>}/>
           <Route path="/explore" element={state.user ? <Explore/> : <Login/>}/>
           <Route path="/:id" element={state.user ? <Mypage/> : <Login/>}/>
           <Route path="/write" element={state.user ? <Write/> : <Login/>}/>
@@ -31,6 +28,7 @@ function App () {
           <Route path="/login" element={state.user ? <Home/> :<Login/>}/>
           <Route path="/register" element={state.user? <Home/> : <Register/>}/>
           <Route path="/single/:id" element={state.user? <Single/> : <Register/>}/>
+          <Route path="/*" element={state.user ? <Home/> : <Login/>}/>
         </Routes>
       </BrowserRouter>
     </>

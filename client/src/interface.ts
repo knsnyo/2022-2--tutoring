@@ -13,7 +13,7 @@ export interface IUser {
 export interface ILogin {
 	user: any,
 	isFetching: boolean,
-	error: boolean
+	error: boolean,
 }
 
 export interface IReply {

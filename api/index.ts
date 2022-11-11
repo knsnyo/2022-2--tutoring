@@ -20,6 +20,12 @@ app.use("/api/post", postRouter)
 app.use("/api/upload", uploadRouter)
 app.use("/api/reply", replyRouter)
 
+app.use(express.static(path.join(__dirname, "../client/build")))
+app.get("/", (req, res) => {
+	res.send(express.static(path.join(__dirname, "../client/build/index.html")))
+})
+
+
 /** Start Server */
 app.listen(5000, () => {
 	console.log("backend running")

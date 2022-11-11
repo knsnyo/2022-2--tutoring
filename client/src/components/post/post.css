@@ -37,6 +37,11 @@
 	align-items: center;
 }
 
+.postHeaderLeft img {
+	width: 4vh;
+	height: 4vh;
+}
+
 .postHeaderRight {
 	flex: 4;
 	display: flex;

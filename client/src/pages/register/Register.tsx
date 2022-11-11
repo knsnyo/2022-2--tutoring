@@ -19,10 +19,9 @@ function Register () {
 				password: password,
 			}
 			const res = await axios.post("/api/auth/register", newUser)
-			res.data && window.location.replace("/login")
+			res.data && window.location.replace("/")
 		} catch (err: unknown) {
-			console.log(err)
-			setError(error)
+			setError(true)
 		}
 	}
 

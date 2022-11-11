@@ -1,5 +1,7 @@
+import React from "react"
 import { Link } from "react-router-dom"
 import { IPost } from "../../interface"
+import { PF } from "../../settings"
 import "./magazine.css"
 
 interface IProps {
@@ -8,8 +10,10 @@ interface IProps {
 
 function Magazine ({magazine}: IProps) {
 	let item = Object.values(magazine.postPic)
-	const PF = "http://localhost:5000/image/"
 
+	React.useEffect(() => {
+		console.log(`${PF + item[0]}`)
+	}, [item])
 	return (
 		<div className="magazine">
 			<Link className="link" to={`/single/${magazine._id}`}>

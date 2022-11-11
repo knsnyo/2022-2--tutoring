@@ -85,3 +85,8 @@
 .headerListItemProfile hr {
 	background-color: #ddd;
 }
+
+.headerListItemProfile img {
+	width: 4vh;
+	height: 4vh;
+}

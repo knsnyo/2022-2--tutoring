@@ -18,7 +18,7 @@ const storage = diskStorage({
 
 const upload = multer({ storage : storage })
 
-uploadRouter.post("/", upload.array("file", 10), (req: Request, res: Response) => {
+uploadRouter.post("/", upload.single("file"), (req: Request, res: Response) => {
 	res.status(200).json("file upload")
 })
 

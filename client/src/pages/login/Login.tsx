@@ -9,6 +9,7 @@ function Login () {
 	// const passwordRef = useRef<HTMLInputElement>()
 	const [id, setId] = useState<string>("")
 	const [password, setPassword] = useState<string>("")
+	const [error, setError] = useState<boolean>(false);
 	const { state, dispatch } = useContext(LoginContext)
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -22,6 +23,7 @@ function Login () {
 			dispatch({ type: "LOGIN_SUCCESS", payload: res.data})
 		} catch (err: unknown) {
 			dispatch({ type: "LOGIN_FAILURE"})
+			setError(false);
 		}
 	}
 
@@ -39,6 +41,7 @@ function Login () {
 						</Link>
 					</div>
 				</div>
+				{error && <label style={{color: "red"}}>Login Failure</label>}
 			</form>
 		</div>
 	)

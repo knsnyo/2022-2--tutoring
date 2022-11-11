@@ -7,6 +7,7 @@ import Reply from "../reply/Reply"
 import { IPost, IUser } from "../../interface"
 import axios from "axios"
 import { LoginContext } from "../../context/LoginContext"
+import { PF } from "../../settings"
 interface IProps {
 	post: IPost
 }
@@ -14,8 +15,6 @@ interface IProps {
 function Post ({post}: IProps) {
 	const { state } = useContext(LoginContext)
 	const [user, setUser] = useState<IUser>({})
-	
-	const PF = "http://localhost:5000/image/"
 
 	useEffect(() => {
 		const findUser = async () => {
@@ -51,7 +50,7 @@ function Post ({post}: IProps) {
 						</Link>
 					</span>
 					<Link to={`/${user._id}`} className="link">
-						<strong>&nbsp;{user.username}</strong>
+						<span style={{}}><strong>&nbsp;{user.username}</strong></span>
 					</Link>
 				</div>
 				{ (state.user._id === post.user_id) ? (

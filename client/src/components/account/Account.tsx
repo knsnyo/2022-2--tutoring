@@ -2,14 +2,13 @@ import "./account.css"
 import React, { useState, useContext } from "react"
 import { LoginContext } from "../../context/LoginContext"
 import axios from "axios"
+import { PF } from "../../settings"
 
 function Account () {
 	const { state, dispatch } = useContext(LoginContext)
 	const [username, setUsername] = useState<string>(state.user.username)
 	const [intro, setIntro] = useState<string>(state.user.intro)
 	const [file, setFile] = useState<FileList | null>()
-
-	const PF = "http://localhost:5000/image/"
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
@@ -31,11 +30,15 @@ function Account () {
 			} catch (err: unknown) {
 				console.log(err)
 			}
+		} else {
+			if(state.user.profilePic) {
+				updatedUser.profilePic = state.user.profilePic
+			}
 		}
 		try {
 			const res = await axios.put(`/api/user/${state.user._id}`, updatedUser)
 			dispatch({ type: "UPDATE_SUCCESS", payload: res.data})
-			//window.location.replace(`/${updatedUser._id}`)
+			window.location.replace("/")
 		} catch (err: unknown) {
 			dispatch({ type: "UPDATE_FAILURE" })
 		}
@@ -51,7 +54,7 @@ function Account () {
 				data: deleteUser
 			})
 			dispatch({ type: "LOGOUT"})
-			window.location.replace("/login")
+			window.location.replace("/")
 		} catch (err: unknown) {
 			console.log(err)
 		}

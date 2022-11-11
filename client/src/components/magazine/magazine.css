@@ -1,13 +1,14 @@
 .magazine {
 	justify-content: center;
 	align-items: center;
-	width: calc(100% / 3);
+	width: 33vw;
 	height: inherit;
 	padding: 10px;
 	box-sizing: border-box;
 }
 
 .magazine img {
-	width: 100%;
+	width: calc(33vw - 20px);
+	height: calc(33vw - 20px);
 	object-fit: cover;
 }

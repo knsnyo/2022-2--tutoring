@@ -1,7 +1,6 @@
 import { Router, Request, Response } from "express"
 import { Reply } from "../models/Reply"
 
-
 /** db */
 import { connect } from "mongoose"
 import { MONGO_URL } from "../setting"

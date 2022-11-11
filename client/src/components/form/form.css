@@ -16,6 +16,21 @@
 	width: inherit;
 }
 
+.fileInputPreview {
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.fileInputPreview > img {
+	width: calc(20vw - 20px);
+	height: calc(20vw - 20px);
+	box-sizing: border-box;
+	padding: 5px;
+}
+
 .formWrite{
 	flex: 2;
 	display: flex;

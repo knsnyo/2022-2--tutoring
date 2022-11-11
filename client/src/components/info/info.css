@@ -6,12 +6,13 @@
 	width: inherit;
 	background-color: rgba(200,200,200,0.1);
 	border-bottom: 1px solid #ddd;
-	padding: 30px;
+	padding-right: 30px;
 	box-sizing: border-box;
 }
 
 .infoProfile {
-	max-width: 25vh;
+	width: 20vh;
+	height: 20vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
