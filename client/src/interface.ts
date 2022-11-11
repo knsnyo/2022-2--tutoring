@@ -1,7 +1,7 @@
 export interface IPost {
 	description: string,
 	user_id: string,
-	postPic: Object,
+	postPic: Array<string>,
 	like: number,
 	_id: string
 }

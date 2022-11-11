@@ -1,5 +1,4 @@
 import "./magazines.css"
-import React from "react"
 import Magazine from "../magazine/Magazine"
 import { IPost } from "../../interface"
 
@@ -10,7 +9,7 @@ interface IProps {
 function Magazines ({ posts }: IProps) {
 	return (
 		<div className="magazines">
-			{posts.map((data:IPost, index) => (
+			{Array.isArray(posts) && posts.map((data:IPost, index) => (
 				<Magazine key={index} magazine={data}/>
 			))}
 		</div>

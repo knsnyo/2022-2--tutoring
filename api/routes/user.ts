@@ -66,6 +66,7 @@ userRouter.get("/:id", async (req: Request, res: Response) => {
 		await connect(MONGO_URL)
 
 		const findUser = await User.findById({_id: req.params.id})
+
 		res.status(200).json(findUser)
 	} catch (err: unknown) {
 		res.status(500).json(err)

@@ -2,9 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import Header from "../../components/header/Header";
 import Posts from "../../components/posts/Posts";
+import { IPost } from "../../interface"
 
 function Home () {
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState<Array<IPost>>([])
 
   useEffect(() => {
     const fetchPosts = async () => {

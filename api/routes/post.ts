@@ -33,6 +33,7 @@ postRouter.put("/:id",async (req: Request, res: Response) => {
 			res.status(404).json("Post Not Found")
 		} else {
 			if(findPost.user_id !== req.body.user_id) {
+				console.log(req.body)
 				res.status(401).json("Not Your Post")
 			} else {
 				const updatedPost = await Post.findByIdAndUpdate(req.params.id, {

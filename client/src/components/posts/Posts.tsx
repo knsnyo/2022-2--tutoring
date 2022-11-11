@@ -9,7 +9,7 @@ interface IProps {
 function Posts ({ posts }: IProps) {
 	return (
 		<div className="posts">
-			{posts.map((data: IPost, index) => (
+			{Array.isArray(posts) && posts.map((data: IPost, index) => (
 				<Post post={data} key={index}/>	
 			))}
 		</div>
