@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import Header from "../../components/header/Header"
 import Info from "../../components/info/Info"
 import Magazines from "../../components/magazines/Magazines"
 import axios from "axios"
@@ -20,7 +19,6 @@ function Mypage () {
 
 	return (
 		<>
-			<Header/>
 			<Info post={posts.length}/>
 			<Magazines posts={posts}/>
 		</>

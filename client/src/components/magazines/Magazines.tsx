@@ -9,9 +9,11 @@ interface IProps {
 function Magazines ({ posts }: IProps) {
 	return (
 		<div className="magazines">
-			{Array.isArray(posts) && posts.map((data:IPost, index) => (
-				<Magazine key={index} magazine={data}/>
-			))}
+			<div className="magazinesLayout">
+				{Array.isArray(posts) && posts.map((data:IPost, index) => (
+					<Magazine key={index} magazine={data}/>
+				))}
+			</div>
 		</div>
 	)
 }

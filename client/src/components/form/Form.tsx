@@ -85,40 +85,42 @@ function Form () {
 
 	return (
 		<div className="form">
-			<div className="formPreview">
-				<label htmlFor="fileInput" className="formWriteGroupLabel">
-					{ (file?.length) ?
-						<div className="fileInputPreview">
-							{viewFile()}
-						</div>
-						:
-						<i className="fa-solid fa-image"></i>
-					}
-				</label>
+			<div className="formLayout">
+				<div className="formPreview">
+					<label htmlFor="fileInput" className="formWriteGroupLabel">
+						{ (file?.length) ?
+							<div className="fileInputPreview">
+								{viewFile()}
+							</div>
+							:
+							<i className="fa-solid fa-image"></i>
+						}
+					</label>
+				</div>
+				<form className="formWrite" onSubmit={handleSubmit}>
+					<div className="formWriteGroup">
+						<input 
+							id="fileInput" 
+							type="file" 
+							multiple={true} 
+							accept=".jpg,.jpeg,.png"
+							style={{display: "none"}}
+							onChange={(e) => setFile(e.target.files)}
+							required
+						/>
+						<textarea
+							placeholder="Tell your story"
+							onChange={(e) => setDescription(e.target.value)}
+							value={description}
+						/>
+					</div>
+					<div className="formWriteButton">
+						<button className="formWriteGroupSubmit" type="submit">
+							Upload
+						</button>
+					</div>
+				</form>
 			</div>
-			<form className="formWrite" onSubmit={handleSubmit}>
-				<div className="formWriteGroup">
-					<input 
-						id="fileInput" 
-						type="file" 
-						multiple={true} 
-						accept=".jpg,.jpeg,.png"
-						style={{display: "none"}}
-						onChange={(e) => setFile(e.target.files)}
-						required
-					/>
-					<textarea
-						placeholder="Tell your story"
-						onChange={(e) => setDescription(e.target.value)}
-						value={description}
-					/>
-				</div>
-				<div className="formWriteButton">
-					<button className="formWriteGroupSubmit" type="submit">
-						Upload
-					</button>
-				</div>
-			</form>
 		</div>
 	)
 }

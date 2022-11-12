@@ -4,13 +4,14 @@
 	justify-content: center;
 	align-items: center;
 	width: inherit;
-	height: 100%;
+	max-width: inherit;
 	flex-direction: column;
-	padding: 5px;
+	padding: 0.5rem;
 }
 
 .replyMenu {
 	width: inherit;
+	max-width: inherit;
 	flex: 1;
 	display: flex;
 	justify-content: center;
@@ -35,35 +36,36 @@
 
 .replyTotalLike {
 	width: inherit;
+	max-width: inherit;
 	flex: 1;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	padding-left: 20px;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-left: 1.5rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
 }
 
 .postDescription {
 	width: inherit;
+	max-width: inherit;
 	flex: 1;
 	display: flex;
 	justify-content: flex-start;
 	align-items: flex-start;
-	padding-left: 10px;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-left: 0.75rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
 	box-sizing: border-box;
 }
 
 .replyList {
 	width: inherit;
+	max-width: inherit;
 	flex: 1;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	padding-top: 5px;
-	padding-bottom: 5px;
 	flex-direction: column;
 }
 
@@ -74,6 +76,7 @@
 	align-items: center;
 	flex-direction: row;
 	width: inherit;
+	max-width: inherit;
 	border-top: 1px solid #ddd;
 }
 
@@ -92,7 +95,7 @@
 }
 
 .replyFormRight {
-	padding: 10px;
+	padding: 0.5rem;
 	font-weight: bold;
 	color: blue;
 	border: none;
@@ -101,14 +104,14 @@
 }
 
 .replyIcon {
-	font-size: 24px;
-	padding: 0px 10px;
+	font-size: 1.5rem;
+	padding: 0px 0.5rem;
 	cursor: pointer;
 }
 
 .replyInput {
 	width: 100%;
 	border: none;
-	border-radius: 10px;
-	font-size: 14px;
+	border-radius: 1rem;
+	font-size: 1rem;
 }

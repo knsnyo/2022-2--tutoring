@@ -8,11 +8,10 @@
 	align-items: center;
 	z-index: 999;
 	border-bottom: 1px solid #ddd;
-	margin: 0;
 }
 
 .headerLeft {
-	flex: 1;
+	width: 10rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -20,43 +19,40 @@
 }
 
 .headerCenter {
-	flex: 2;
+	flex: 1;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	background-color: #eee;
-	border-radius: 10px;
+	border-radius: 1rem;
 	flex-direction: row;
-	padding: 10px;
+	padding: 1rem;
 }
 
 .search {
-	width: 100%;
+	width: 80vw;
+	max-width: 10rem;
 	border: none;
-	font-size: 14px;
+	font-size: 1rem;
 	background-color: transparent;
 }
 
 .headerRight {
-	flex: 2;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-
 
 .headerList {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0;
-	padding: 0;
 	list-style: none;
 }
 
 .headerListItem {
-	margin: 10px;
-	font-size: 20px;
+	margin: 1rem;
+	font-size: 1.25rem;
 	cursor: pointer;
 }
 
@@ -73,13 +69,13 @@
 
 .headerListItemProfile li {
 	list-style: none;
-	font-size: 16px;
-	margin: 10px;
+	font-size: 1rem;
+	margin: 1rem;
 	padding-left: 0;
 }
 
 .headerListItemProfile i {
-	margin-right: 10px;
+	margin-right: 1rem;
 }
 
 .headerListItemProfile hr {
@@ -89,4 +85,10 @@
 .headerListItemProfile img {
 	width: 4vh;
 	height: 4vh;
+}
+
+@media screen and (max-width: 64rem){
+	.headerRight {
+		display: none;
+	}
 }

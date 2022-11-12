@@ -1,10 +1,23 @@
 .magazines {
-	flex: 1;
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+}
+
+.magazinesLayout {
+	flex: 1;
+	display: flex;
+	width: 100vw;
+	max-width: 50rem;
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	align-items: flex-start;
-	margin: 0;
-	width: inherit;
+}
+
+@media screen and (max-width: 64rem) {
+	.magazines {
+		padding-bottom: 8vh;
+	}
 }

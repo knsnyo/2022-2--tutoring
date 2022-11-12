@@ -94,8 +94,7 @@ function Account () {
 							required={true}
 						/>
 						<textarea 
-							placeholder="introduce" 
-							style={{width: "80%"}}
+							placeholder="introduce"
 							value={intro}
 							onChange={(e) => setIntro(e.target.value)}
 						/>

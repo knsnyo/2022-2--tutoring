@@ -3,11 +3,11 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 20px;
+	margin: 1.25rem;
 	flex-direction: column;
-	width: 100%;
-	max-width: 450px;
-	border-radius: 10px;
+	width: 100vw;
+	max-width: 30rem;
+	border-radius: 1rem;
 	border: 1px solid #ccc;
 }
 
@@ -15,8 +15,9 @@
 	display: flex;
 	flex: 1;
 	width: inherit;
+	max-width: inherit;
 	border-bottom: 1px solid #ccc;
-	border-radius: 10px;
+	border-radius: 1rem;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -26,7 +27,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 10px;
+	padding: 1rem;
 }
 
 .postHeaderLeft > span {
@@ -47,7 +48,7 @@
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	padding: 10px;
+	padding: 1rem;
 	cursor: pointer;
 }
 
@@ -57,6 +58,7 @@
 	justify-content: center;
 	align-items: center;
 	width: inherit;
+	max-width: inherit;
 }
 
 .postFooter {
@@ -65,4 +67,5 @@
 	justify-content: center;
 	align-items: center;
 	width: inherit;
+	max-width: inherit;
 }

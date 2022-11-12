@@ -7,3 +7,10 @@
 	background-color: rgba(200,200,200,0.1);
 	min-height: 92vh;
 }
+
+@media screen and (max-width: 64rem) {
+	.posts {
+		min-height: 84vh;
+		padding-bottom: 8vh;
+	}
+}

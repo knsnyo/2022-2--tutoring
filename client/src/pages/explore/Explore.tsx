@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react"
-
-import Header from "../../components/header/Header"
 import Magazines from "../../components/magazines/Magazines"
-
 import axios from "axios"
 
 function Explore () {
@@ -18,7 +15,6 @@ function Explore () {
 
 	return (
 		<>
-			<Header/>
 			<Magazines posts={posts}/>
 		</>
 	)
