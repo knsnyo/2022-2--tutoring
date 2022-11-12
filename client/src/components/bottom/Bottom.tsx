@@ -6,8 +6,10 @@ import Profile from "../profile/Profile"
 import "./bottom.css"
 
 function Bottom () {
-	const { state } = useContext(LoginContext)
-
+	const { state, dispatch } = useContext(LoginContext)
+	const handleLogout = () => {
+		dispatch({ type: "LOGOUT"})
+	}
 	return (
 		<div className="bottomRight">
 				<ul className="bottomList">
@@ -37,6 +39,9 @@ function Bottom () {
 							<i className="fa-solid fa-gear"></i>
 						</li>
 					</Link>
+					<li className="bottomListItem" onClick={handleLogout}>
+						<i className="fa-solid fa-power-off"></i>
+					</li>
 					<Link to={`/${state.user._id}`} className="link">
 						<li className="bottomListItem">
 							<div className="bottomListItemProfile">

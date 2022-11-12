@@ -3,6 +3,8 @@ import Info from "../../components/info/Info"
 import Magazines from "../../components/magazines/Magazines"
 import axios from "axios"
 import { useLocation } from "react-router-dom"
+import Bottom from "../../components/bottom/Bottom"
+import Header from "../../components/header/Header"
 
 function Mypage () {
 	const [posts, setPosts] = useState([])
@@ -19,8 +21,10 @@ function Mypage () {
 
 	return (
 		<>
+			<Header/>
 			<Info post={posts.length}/>
 			<Magazines posts={posts}/>
+      <Bottom/>
 		</>
 	)
 }

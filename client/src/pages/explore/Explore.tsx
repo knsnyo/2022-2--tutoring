@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import Magazines from "../../components/magazines/Magazines"
 import axios from "axios"
+import Header from "../../components/header/Header"
+import Bottom from "../../components/bottom/Bottom"
 
 function Explore () {
 	const [posts, setPosts] = useState([])
@@ -15,7 +17,9 @@ function Explore () {
 
 	return (
 		<>
-			<Magazines posts={posts}/>
+      <Header/>
+      <Magazines posts={posts}/>
+      <Bottom/>
 		</>
 	)
 }
