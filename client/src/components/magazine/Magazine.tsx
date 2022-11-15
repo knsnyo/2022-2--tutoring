@@ -10,10 +10,7 @@ interface IProps {
 
 function Magazine ({magazine}: IProps) {
 	let item = Object.values(magazine.postPic)
-
-	React.useEffect(() => {
-		console.log(`${PF + item[0]}`)
-	}, [item])
+	
 	return (
 		<div className="magazine">
 			<Link className="link" to={`/single/${magazine._id}`}>

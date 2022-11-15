@@ -81,6 +81,7 @@
 	justify-content: space-around;
 	align-items: center;
 	width: inherit;
+	max-width: inherit;
 	margin: 1rem;
 }
 

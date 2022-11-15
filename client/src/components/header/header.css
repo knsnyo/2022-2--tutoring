@@ -19,7 +19,7 @@
 }
 
 .headerCenter {
-	flex: 1;
+	width: calc(100vw - 10rem);
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
@@ -27,6 +27,9 @@
 	border-radius: 1rem;
 	flex-direction: row;
 	padding: 1rem;
+	margin: 1rem;
+	min-width: 10rem;
+	box-sizing: border-box;
 }
 
 .search {

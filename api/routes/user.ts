@@ -1,12 +1,12 @@
 import { Router, Request, Response } from "express"
 import { User } from "../models/User"
 import { genSalt, hash } from "bcrypt"
+import { Post } from "../models/Post"
+import { Reply } from "../models/Reply"
 
 /** db */
 import { connect } from "mongoose"
 import { MONGO_URL, SALT } from "../setting"
-import { Post } from "../models/Post"
-import { Reply } from "../models/Reply"
 
 const userRouter: Router = Router()
 

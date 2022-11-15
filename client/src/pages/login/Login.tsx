@@ -15,15 +15,17 @@ function Login () {
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
 		dispatch({type: "LOGIN_START"})
+		setError(false)
 		try {
 			const res = await axios.post("/api/auth/login", {
 				id: id,
 				password: password,
 			})
 			dispatch({ type: "LOGIN_SUCCESS", payload: res.data})
+			setError(false)
 		} catch (err: unknown) {
 			dispatch({ type: "LOGIN_FAILURE"})
-			setError(false);
+			setError(true);
 		}
 	}
 
@@ -41,7 +43,7 @@ function Login () {
 						</Link>
 					</div>
 				</div>
-				{error && <label style={{color: "red"}}>Login Failure</label>}
+				{error && <span style={{color: "red"}}>error!!</span>}
 			</form>
 		</div>
 	)

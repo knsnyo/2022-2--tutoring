@@ -97,8 +97,10 @@
 	align-items: flex-start;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 64rem) {
 	.form {
-		min-height: 84vh;
+		max-height: 84vh;
+		padding-bottom: 8vh;
+		box-sizing: border-box;
 	}
 }

@@ -2,7 +2,6 @@ import { Router, Request, Response } from "express"
 import { User } from "../models/User"
 import { compare, genSalt, hash } from "bcrypt"
 
-
 /** db */
 import { connect } from "mongoose"
 import { MONGO_URL, SALT } from "../setting"
