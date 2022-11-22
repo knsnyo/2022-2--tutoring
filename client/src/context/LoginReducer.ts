@@ -8,6 +8,7 @@ export type TLoginAction =
 | { type: "UPDATE_START"}
 | { type: "UPDATE_SUCCESS", payload: ILogin}
 | { type: "UPDATE_FAILURE"}
+| { type: string, payload?: ILogin}
 
 export function LoginReducer (state: ILogin, action: TLoginAction): ILogin {
 	switch (action.type) {

@@ -55,15 +55,13 @@ postRouter.delete("/:id",async (req: Request, res: Response) => {
 		const findPost = await Post.findById(req.params.id)
 		if (!findPost) {
 			res.status(404).json("Post Not Found")
+		} else if (findPost.user_id !== req.body.user_id) {
+			res.status(401).json("Not Your Post")
 		} else {
-			if (findPost.user_id !== req.body.user_id) {
-				res.status(401).json("Not Your Post")
-			} else {
-				await findPost.delete()
-				await Reply.deleteMany({ post_id: req.params.id})
+			await findPost.delete()
+			await Reply.deleteMany({ post_id: req.params.id})
 				
-				res.status(200).json("Delete Your Post")
-			}
+			res.status(200).json("Delete Your Post")
 		}
 	} catch (err: unknown) {
 		res.status(500).json(err)

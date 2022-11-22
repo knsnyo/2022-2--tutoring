@@ -21,10 +21,14 @@ app.use("/api/upload", uploadRouter)
 app.use("/api/reply", replyRouter)
 
 app.use(express.static(path.join(__dirname, "../client/build")))
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "../client/build/index.html"))
+})
+/*
+app.get("*", (req, res) => {
 	res.send(express.static(path.join(__dirname, "../client/build/index.html")))
 })
-
+*/
 
 /** Start Server */
 app.listen(5000, () => {

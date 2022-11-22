@@ -25,3 +25,4 @@ yarn-error.log*
 setting.ts
 /upload
 /test
+.env
